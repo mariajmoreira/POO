@@ -77,6 +77,10 @@ public class Encomenda_ArrayList
         return this.numEnc;
     }
     
+    public LocalDate getData(){
+        return this.data;
+    }
+    
     public double calculaValorTotal(){
         double valor=0;
         for(int i=0; i<linhas.size();i++){
@@ -114,8 +118,18 @@ public class Encomenda_ArrayList
         }
     }
     
+    public Encomenda_ArrayList clone() {
+        return new Encomenda_ArrayList(this);
+    }
+    
     public String toString(){
-        return "Enc: " + this.nome + "\n nif: " + this.nfc;
+        StringBuilder sb = new StringBuilder();
+        sb.append("Encomendas:\n").append("Nome:").append(this.nome).append("\n").append("Nfc:")
+                                  .append(this.nfc).append("\n").append("Morada:").append(this.morada)
+                                  .append("\n").append("Numero Encomenda:").append(this.numEnc)
+                                  .append("\n").append("Data:").append(this.data)
+                                  .append("\n").append("Linhas Encomenda:").append(this.linhas).append("\n");
+        return sb.toString();                          
     }
     
     public boolean equals (Object o){
